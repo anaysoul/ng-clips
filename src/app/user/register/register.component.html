@@ -11,13 +11,13 @@
       minlength="3"
     />
     <p
-      *ngIf="registerForm.controls['name'].errors?.['required']"
+      *ngIf="registerForm.controls['name'].touched && registerForm.controls['name'].dirty && registerForm.controls['name'].errors?.['required']"
       class="text-red-400"
     >
       Field is required
     </p>
     <p
-      *ngIf="registerForm.controls['name'].errors?.['minlength']"
+      *ngIf="registerForm.controls['name'].touched && registerForm.controls['name'].dirty && registerForm.controls['name'].errors?.['minlength']"
       class="text-red-400"
     >
       You entered
