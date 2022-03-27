@@ -10,7 +10,22 @@
       placeholder="Enter Name"
       minlength="3"
     />
-    <p>{{ registerForm.get("name")?.errors | json }}</p>
+    <p
+      *ngIf="registerForm.controls['name'].errors?.['required']"
+      class="text-red-400"
+    >
+      Field is required
+    </p>
+    <p
+      *ngIf="registerForm.controls['name'].errors?.['minlength']"
+      class="text-red-400"
+    >
+      You entered
+      {{registerForm.controls['name'].errors?.['minlength'].actualLength}}.
+      Minimum of
+      {{registerForm.controls['name'].errors?.['minlength'].requiredLength}}
+      characters is required
+    </p>
   </div>
   <!-- Email -->
   <div class="mb-3">
