@@ -24,6 +24,7 @@
   <div class="mb-3">
     <label class="inline-block mb-2">Password</label>
     <input
+      #password="ngModel"
       type="password"
       name="password"
       [(ngModel)]="credentials.password"
@@ -31,6 +32,12 @@
       placeholder="Password"
       required
     />
+    <p
+      *ngIf="password.errors && password.touched && password.dirty"
+      class="text-red-400"
+    >
+      Password is invalid
+    </p>
   </div>
   <button
     type="submit"
